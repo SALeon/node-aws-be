@@ -17,7 +17,7 @@ custom:
     webpackConfig: 'webpack.config.js'
     includeModules: false
     packager: "npm"
-    excludeFiles: tests/**
+    excludeFiles: tests/*
   serverless-offline:
     httpPort: 8000
 

@@ -1,12 +1,12 @@
-import productList from '../productList.json';
+import productList from '../../mocks/productList';
 import { CORS_ALLOW_ALL }  from '../header-config';
 
-export const getAllProducts = async (event) => {
-  try {
+export const getAllProducts = async () => {
 
+  try {
     return {
       statusCode: 200,
-      body: JSON.stringify(productList[0]),
+      body: JSON.stringify(productList),
       header: CORS_ALLOW_ALL
     };
 
@@ -16,7 +16,7 @@ export const getAllProducts = async (event) => {
 
     return {
       statusCode: 500,
-      body: 'Something wrong error'
+      body: 'Something wrong happen!!!'
     }
   }
 };

@@ -1,19 +1,35 @@
-import productList from '../productList.json';
+import productList from '../../mocks/productList';
 import { CORS_ALLOW_ALL }  from '../header-config';
+
+const defaultRes = {
+    statusCode: 404,
+    body: 'Product not found!!!',
+    header: CORS_ALLOW_ALL
+}
+
+const findProductById = (id) => {
+  return productList.find(product => product.id === id);
+}
 
 export const getProductById = async (event) => {
 
   try {
+    const { productId } = event.pathParameters;
+    const product = findProductById(productId);
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify(productList[0]),
-      header: CORS_ALLOW_ALL
-    };
+    return product ? {
+      ...defaultRes,
+      body: JSON.stringify(product),
+      statusCode: 200
+    } : defaultRes;
 
   } catch (error) {
     error.message = `Some message in getProductById: ${error.message}`;
     console.log(error);
-    throw (error);
+
+    return {
+      statusCode: 500,
+      body: 'Something wrong happen!!!'
+    }
   }
 };
