@@ -1,11 +1,22 @@
 import productList from '../productList.json';
+import { CORS_ALLOW_ALL }  from '../header-config';
 
-export const getProductById = async (event) => {
-  console.log('Lambda invocation with event: ', event);
+export const getAllProducts = async (event) => {
+  try {
 
+    return {
+      statusCode: 200,
+      body: JSON.stringify(productList[0]),
+      header: CORS_ALLOW_ALL
+    };
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify(productList[0])
-  };
+  } catch (error) {
+    error.message = `Some message in getAllProducts: ${error.message}`;
+    console.log(error);
+
+    return {
+      statusCode: 500,
+      body: 'Something wrong error'
+    }
+  }
 };

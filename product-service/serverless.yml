@@ -9,11 +9,17 @@ provider:
 
 plugins:
   - serverless-webpack
+  - serverless-offline
+
 
 custom:
   webpack:
     webpackConfig: 'webpack.config.js'
-    includeModules: true
+    includeModules: false
+    packager: "npm"
+    excludeFiles: tests/**
+  serverless-offline:
+    httpPort: 8000
 
 functions:
   getAllProducts:
