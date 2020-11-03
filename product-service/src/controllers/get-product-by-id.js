@@ -1,10 +1,10 @@
-import productList from '../../mocks/productList';
+import productList from '../../mocks/productList.json';
 import { CORS_ALLOW_ALL }  from '../header-config';
 
 const defaultRes = {
     statusCode: 404,
     body: 'Product not found!!!',
-    header: CORS_ALLOW_ALL
+    headers: CORS_ALLOW_ALL
 }
 
 const findProductById = (id) => {

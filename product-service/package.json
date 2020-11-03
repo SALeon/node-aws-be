@@ -5,7 +5,7 @@
   "main": "handler.js",
   "scripts": {
     "test": "jest ",
-    "deploy": "serverless product-service deploy --no-config-change --no-policy-change --no-cors-change",
+    "deploy": "serverless deploy",
     "start": "serverless offline -P 8000 -o 0.0.0.0",
     "watch": "SLS_DEBUG=* serverless offline -P 8000 -o 0.0.0.0",
     "test:watch": "jest --watch  --experimental-vm-modules"

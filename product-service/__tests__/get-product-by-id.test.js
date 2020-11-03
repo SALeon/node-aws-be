@@ -1,6 +1,6 @@
 import { getProductById } from '../src/controllers/get-product-by-id';
 import { CORS_ALLOW_ALL } from '../src/header-config';
-import mockProductList from '../mocks/productList';
+import mockProductList from '../mocks/productList.json';
 
 const MOCK_PRODUCT = 1;
 
@@ -11,7 +11,7 @@ describe('getProductByID', () => {
         const mockedRes = {
             statusCode: 200,
             body: JSON.stringify(mockedProduct),
-            header: CORS_ALLOW_ALL
+            headers: CORS_ALLOW_ALL
         };
         const response = await getProductById({ pathParameters: { productId: mockedProduct.id } });
     expect(response).toEqual(mockedRes);
