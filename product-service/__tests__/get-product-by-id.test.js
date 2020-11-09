@@ -13,7 +13,7 @@ describe('getProductByID', () => {
             body: JSON.stringify(mockedProduct),
             headers: CORS_ALLOW_ALL
         };
-        const response = await getProductById({ pathParameters: { productId: mockedProduct.id } });
+      const response = await getProductById({ pathParameters: { productId: mockedProduct.id } });
     expect(response).toEqual(mockedRes);
     });
 
@@ -21,7 +21,7 @@ describe('getProductByID', () => {
       const mockedRes = {
           statusCode: 404,
           body: 'Product not found!!!',
-          header: CORS_ALLOW_ALL
+          headers: CORS_ALLOW_ALL
       };
       const response = await getProductById({ pathParameters: { productId: 'not existed id' } });
     expect(response).toEqual(mockedRes);

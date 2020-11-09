@@ -7,7 +7,7 @@ export const getAllProducts = async (event) => {
     return {
       statusCode: 200,
       body: JSON.stringify(productList),
-      headers: JSON.stringify(CORS_ALLOW_ALL)
+      headers: CORS_ALLOW_ALL
     };
 
   } catch (error) {
@@ -16,7 +16,8 @@ export const getAllProducts = async (event) => {
 
     return {
       statusCode: 500,
-      body: 'Something wrong happen!!!'
+      body: 'Something wrong happen!!!',
+      headers: CORS_ALLOW_ALL
     }
   }
 };
